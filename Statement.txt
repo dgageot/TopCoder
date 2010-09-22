@@ -1,17 +1,3 @@
-Problem Statement
-    
-THIS PROBLEM WAS TAKEN FROM THE SEMIFINALS OF THE TOPCODER INVITATIONAL
-TOURNAMENT
-
-DEFINITION
-Class Name: MatchMaker
-Method Name: getBestMatches
-Paramaters: String[], String, int
-Returns: String[]
-Method signature (be sure your method is public):  String[]
-getBestMatches(String[] members, String currentUser, int sf);
-
-PROBLEM STATEMENT
 A new online match making company needs some software to help find the "perfect
 couples".  People who sign up answer a series of multiple-choice questions.
 Then, when a member makes a "Get Best Mates" request, the software returns a
@@ -59,41 +45,3 @@ and must be a member.
 
 NOTES
 The currentUser should not be included in the returned list of potential mates.
-
-
-EXAMPLES
-
-For the following examples, assume members =
-{"BETTY F M A A C C",
- "TOM M F A D C A",
- "SUE F M D D D D",
- "ELLEN F M A A C A",
- "JOE M F A A C A",
- "ED M F A D D A",
- "SALLY F M C D A B",
- "MARGE F M A A C C"}
-
-If currentUser="BETTY" and sf=2, BETTY and TOM have two identical answers and
-BETTY and JOE have three identical answers, so the method should return
-{"JOE","TOM"}.
-
-If currentUser="JOE" and sf=1, the method should return
-{"ELLEN","BETTY","MARGE"}.
-
-If currentUser="MARGE" and sf=4, the method should return [].
-Definition
-    
-Class:
-MatchMaker
-Method:
-getBestMatches
-Parameters:
-String[], String, int
-Returns:
-String[]
-Method signature:
-String[] getBestMatches(String[] param0, String param1, int param2)
-(be sure your method is public)
-    
-
-This problem statement is the exclusive and proprietary property of TopCoder, Inc. Any unauthorized use or reproduction of this information without the prior written consent of TopCoder, Inc. is strictly prohibited. (c)2003, TopCoder, Inc. All rights reserved.
