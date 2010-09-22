@@ -55,6 +55,9 @@ public class Prerequisites {
 					if (prerequisite.equals(course1)) {
 						return true;
 					}
+					if (isBefore(course1, prerequisite)) {
+						return true;
+					}
 				}
 				return false;
 			}
