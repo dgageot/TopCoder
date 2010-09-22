@@ -1,5 +1,5 @@
-import static java.util.Arrays.*;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -69,7 +69,7 @@ public class MatchMaker {
 	}
 
 	private static String[] answers(String member) {
-		return copyOfRange(parts(member), 3, parts(member).length);
+		return Arrays.asList(parts(member)).subList(0, parts(member).length).toArray(new String[0]);
 	}
 
 	private static String genre(String member) {
