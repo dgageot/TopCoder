@@ -27,7 +27,6 @@ public class Prerequisites {
 
 	private Comparator<String> COURSE_ORDER(final Map<String, String[]> prerequisitesPerCourse) {
 		return new Comparator<String>() {
-			@Override
 			public int compare(String c1, String c2) {
 				boolean c1IsBeforeC2 = isBefore(c1, c2);
 				boolean c2IsBeforeC1 = isBefore(c2, c1);
