@@ -29,16 +29,18 @@ public class Prerequisites {
 		return new Comparator<String>() {
 			@Override
 			public int compare(String c1, String c2) {
-				if (isBefore(c1, c2) && isBefore(c2, c1)) {
+				boolean c1IsBeforeC2 = isBefore(c1, c2);
+				boolean c2IsBeforeC1 = isBefore(c2, c1);
+
+				if (c1IsBeforeC2 && c2IsBeforeC1) {
 					throw new CycleDetected();
 				}
-				if (isBefore(c1, c2)) {
+				if (c1IsBeforeC2) {
 					return -1;
 				}
-				if (isBefore(c2, c1)) {
+				if (c2IsBeforeC1) {
 					return +1;
 				}
-
 				int diff = number(c1) - number(c2);
 				if (0 != diff) {
 					return diff;
@@ -47,18 +49,16 @@ public class Prerequisites {
 			}
 
 			private boolean isBefore(String course1, String course2) {
-				String[] prerequisites = prerequisitesPerCourse.get(course2);
-				if (null == prerequisites) {
+				if (!prerequisitesPerCourse.containsKey(course2)) {
 					throw new PrerequisiteNotReferenced();
 				}
-				for (String prerequisite : prerequisites) {
-					if (prerequisite.equals(course1)) {
-						return true;
-					}
-					if (isBefore(course1, prerequisite)) {
+
+				for (String prerequisite : prerequisitesPerCourse.get(course2)) {
+					if ((prerequisite.equals(course1)) || (isBefore(course1, prerequisite))) {
 						return true;
 					}
 				}
+
 				return false;
 			}
 
